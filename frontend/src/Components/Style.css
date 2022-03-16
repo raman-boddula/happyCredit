@@ -1,0 +1,138 @@
+.loginbtn {
+    background-color: white;
+    color: black;
+    padding: 0.2em 1em;
+    border: 1px solid black;
+    border-radius: 1em;
+    font-size: 1em;
+    font-weight: 400;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.loginbtn:hover {
+    background-color: black;
+    cursor: pointer;
+    color: white
+}
+
+.getappbtn {
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    padding: 0.2em 1em;
+    border-radius: 1em;
+    font-weight: 400;
+
+}
+
+.getappbtn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.options {
+    display: flex;
+    justify-content: "space-around";
+    padding: 0.2em
+}
+
+.options div {
+    margin-left: 2em;
+    font-weight: 400;
+}
+
+.options div:hover {
+    color: #6FB2D2;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.homepageDiv {
+    width: 60%;
+    margin-left: 10%;
+}
+
+.heading {
+    margin-top: 5%;
+    font-size: 3.8em;
+}
+
+.adv {
+    position: absolute;
+    background-color: #A2D2FF;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 30% 2% 30%;
+    border-radius: 0.5em;
+}
+
+.underline {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.closebtn {
+    position: relative;
+    left: 110%;
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+.closebtn:hover {
+    cursor: pointer;
+    background: white;
+    border-radius: 50%;
+}
+
+.prodAndFilter {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+/* .prodAndFilter div {
+    border: 1px solid black;
+} */
+
+.searchBar {
+    width: 63.5vw;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+
+
+.searchBar input {
+    border: none;
+    border-left: none;
+    padding: 1em 1em;
+    font-size: 1em;
+}
+
+.searchBar input:hover {
+    border: none;
+}
+
+.categoriesHover:hover {
+    color: #6FB2D2;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.types {
+    display: flex;
+    justify-content: space-between;
+}
+
+.types:hover {
+    cursor: pointer;
+}
