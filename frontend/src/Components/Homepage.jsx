@@ -2,20 +2,21 @@ import "./Style.css"
 import React from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { IoIosArrowUp } from 'react-icons/io';
-import {RiArrowDownSLine} from 'react-icons/ri'
+import { RiArrowDownSLine } from 'react-icons/ri';
+import axios from 'axios';
 export const Homepage = () => {
     const [add, setAdd] = React.useState(true);
     const [types, setTypes] = React.useState(false);
     const [discountType, setDiscountType] = React.useState(false);
+    const [data, setData] = React.useState([]);
+    React.useEffect(() => {
+        axios.get('http://localhost:2345/products').then((response)=>setData(response.data.AllProducts));
+    })
     return (
         <div className="homepageDiv">
             <h1 className="heading">All deals and coupons.</h1>
             <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
             <div style={{display:add ? "block":"none"}} className="adv">Pay in 4 anywhere with the Chrome extension.<span className="underline">Add to Chrome</span> <span className="closebtn" onClick={()=>setAdd(false)}>X</span> </div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
             <br></br>
             <br></br>
             <div className="prodAndFilter">
@@ -49,7 +50,7 @@ export const Homepage = () => {
                     <hr></hr>
                     <div className="types" onClick={()=>setDiscountType(!discountType)}>
                         <div>Dicount</div>
-                        <div><IoIosArrowUp/></div>
+                        <div>{discountType?<RiArrowDownSLine/>:<IoIosArrowUp />}</div>
                     </div>
                     <br></br>
                     {discountType?<div>
@@ -61,6 +62,21 @@ export const Homepage = () => {
                     <div className="searchBar">
                         <BiSearch style={{padding:'1em'}}/>
                         <input type="text" placeholder="Search"/>
+                    </div>
+                    <div className="productsDiv">
+                        {data.length > 0 ? data.map((el) => {
+                            return (
+                                <div style={{position:'relative'}}>
+                                    <img src={el.product_img} alt={el.title} />
+                                    <p style={{fontWeight:"bolder"}}>{el.title}</p>
+                                    <p>{el.tag}</p>
+                                    <div className="offer" >
+                                    <p>{el.offer}</p>
+                                    <p>{el.percentage}</p>
+                                    </div>
+                                </div>
+                            )
+                        }):null}
                     </div>
                 </div>
             </div>

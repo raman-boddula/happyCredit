@@ -1,19 +1,24 @@
 .loginbtn {
     background-color: white;
     color: black;
-    padding: 0.2em 1em;
+    padding: 0.5em 1em;
     border: 1px solid black;
     border-radius: 1em;
-    font-size: 1em;
-    font-weight: 400;
+    font-size: 0.8em;
+    font-weight: bold;
 
 }
 
 .navbar {
+    width: 100%;
+    background-color: white;
     display: flex;
     justify-content: space-between;
-    padding: 1.5em;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    position: fixed;
+    top: 0px;
+    padding: 1.5em;
+    z-index: 5;
 }
 
 .loginbtn:hover {
@@ -25,11 +30,11 @@
 .getappbtn {
     background-color: black;
     color: white;
-    font-size: 1em;
-    padding: 0.2em 1em;
+    font-size: 0.8em;
+    padding: 0.5em 1em;
     border-radius: 1em;
-    font-weight: 400;
-
+    font-weight: bold;
+    margin-right: 2.5em;
 }
 
 .getappbtn:hover {
@@ -56,8 +61,9 @@
 }
 
 .homepageDiv {
+    margin-top: 10em;
     width: 60%;
-    margin-left: 10%;
+    margin-left: 12%;
 }
 
 .heading {
@@ -70,7 +76,7 @@
     background-color: #A2D2FF;
     justify-content: center;
     align-items: center;
-    padding: 2% 30% 2% 30%;
+    padding: 1.5% 30% 1.5% 30%;
     border-radius: 0.5em;
 }
 
@@ -95,7 +101,9 @@
 .prodAndFilter {
     width: 100%;
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 30% 65%;
+    grid-gap: 5%;
+    margin-top: 3.5em;
 }
 
 /* .prodAndFilter div {
@@ -106,7 +114,8 @@
     width: 63.5vw;
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
+    border-radius: 0.4em;
+    border-bottom: 3px solid black;
 }
 
 
@@ -116,6 +125,10 @@
     border-left: none;
     padding: 1em 1em;
     font-size: 1em;
+}
+
+.searchBar input:focus {
+    outline: none;
 }
 
 .searchBar input:hover {
@@ -135,4 +148,73 @@
 
 .types:hover {
     cursor: pointer;
+}
+
+.productsDiv {
+    margin-top: 2em;
+    width: 164%;
+    display: grid;
+    padding: 1em;
+    grid-template-columns: repeat(4, 23%);
+    grid-gap: 2%;
+}
+
+.productsDiv img {
+    width: 100%;
+    border-radius: 2em;
+    opacity: 0.9;
+}
+
+.productsDiv img:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.offer {
+    position: absolute;
+    left: 0.5em;
+    font-size: 2em;
+    font-weight: bolder;
+    bottom: 2.5em;
+    z-index: 3;
+    color: white
+}
+
+.productsDiv>div:nth-child(7) .offer {
+    color: black;
+}
+
+.footerContainer {
+    margin-top: 5%;
+    width: 91.5%;
+    background-color: rgb(14, 14, 15);
+    color: rgb(255, 255, 255);
+    padding: 5px 5em;
+    display: grid;
+    grid-template-columns: repeat(4, 24%);
+}
+
+.footerContainer>div {
+    padding: 1em;
+}
+
+.footerContainer>div p:hover {
+    color: #6FB2D2;
+    cursor: pointer;
+}
+
+.selectCountry {
+    width: 100%;
+    cursor: pointer;
+    height: 60px;
+    font-size: 1em;
+    font-weight: bold;
+    /* appearance: menulist-button; */
+    padding: 1em;
+    border: none;
+}
+
+.social>div {
+    margin-right: 1.5em;
 }
