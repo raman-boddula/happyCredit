@@ -5,38 +5,41 @@ import { IoIosArrowUp } from 'react-icons/io';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import axios from 'axios';
 export const Homepage = () => {
-    const [add, setAdd] = React.useState(true);
     const [types, setTypes] = React.useState(false);
     const [discountType, setDiscountType] = React.useState(false);
     const [popup, setPopup] = React.useState(false);
     const [data, setData] = React.useState([]);
     const [curr, setCurr] = React.useState({});
     React.useEffect(() => {
-        axios.get('http://localhost:2345/products').then((response)=>setData(response.data.AllProducts));
-    })
+        axios.get(`http://localhost:2345/products`).then((response) => setData(response.data.AllProducts));
+    }, []);
     return (
         <div  className="homepageDiv">
             <h1 className="heading">All deals and coupons.</h1>
             <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
-            <div style={{display:add ? "block":"none"}} className="adv">Pay in 4 anywhere with the Chrome extension.<span className="underline">Add to Chrome</span> <span className="closebtn" onClick={()=>setAdd(false)}>X</span> </div>
+            {/* <div style={{display:add ? "block":"none"}} className="adv">Pay in 4 anywhere with the Chrome extension.<span className="underline">Add to Chrome</span> <span className="closebtn" onClick={()=>setAdd(false)}>X</span> </div> */}
             <br></br>
             <br></br>
             <div className="prodAndFilter" style={{filter: popup ?"blur(2px)":"none"}}>
                 <div>
                     <h2>Categories</h2>
                     <br></br>
-                    <div className="categoriesHover">All</div><br></br>
-                    <div className="categoriesHover">Babies & Kids</div><br></br>
-                    <div className="categoriesHover">Clothing & Apparel</div><br></br>
-                    <div className="categoriesHover">Computer & Accesories</div><br></br>
-                    <div className="categoriesHover">Consumer Electronics</div><br></br>
-                    <div className="categoriesHover">Education</div><br></br>
-                    <div className="categoriesHover">Gifts</div><br></br>
-                    <div className="categoriesHover">Health & Beauty</div><br></br>
-                    <div className="categoriesHover">Holidays & Occasions</div><br></br>
-                    <div className="categoriesHover">Household</div><br></br>
-                    <div className="categoriesHover" style={{ textDecoration: 'underline' }}>See all 15</div><br></br>
-                    <hr></hr>
+                    <div className="categoriess">
+                        <div className="categoriesHover">All</div><br></br>
+                        <div className="categoriesHover">Babies & Kids</div><br></br>
+                        <div className="categoriesHover">Clothing & Apparel</div><br></br>
+                        <div className="categoriesHover">Computer & Accesories</div><br></br>
+                        <div className="categoriesHover">Consumer Electronics</div><br></br>
+                        <div className="categoriesHover">Education</div><br></br>
+                        <div className="categoriesHover">Gifts</div><br></br>
+                        <div className="categoriesHover">Health & Beauty</div><br></br>
+                        <div className="categoriesHover">Holidays & Occasions</div><br></br>
+                        <div className="categoriesHover">Household</div><br></br>
+                        <div className="categoriesHover" style={{ textDecoration: 'underline' }}>See all 15</div><br></br>
+                    </div>
+                    <div className="filtersDiv">
+                        <hr>
+                    </hr>
                     <h2>Filters</h2>
                     <div className="types" onClick={()=>setTypes(!types)}>
                         <div><strong>Type</strong></div>
@@ -58,14 +61,15 @@ export const Homepage = () => {
                     {discountType?<div>
                         <input type='checkbox'  value="49"  id='type4'/>&ensp;<label for="type4">O-40%</label><br/><br/>
                         <input type='checkbox'  value="5080" id='type5'/>&ensp;<label for="type5">50-80%</label><br/><br/>
-                    </div>:null}
+                        </div> : null}
+                        </div>
                 </div>
                 <div>
                     <div className="searchBar">
                         <BiSearch style={{padding:'1em'}}/>
                         <input type="text" placeholder="Search"/>
                     </div>
-                    <div className="productsDiv">
+                    <div className="productsDiv" style={{height:"100vh",overflowY: 'scroll'}} >
                         {data.length > 0 ? data.map((el) => {
                             return (
                                 <div style={{ position: 'relative' }} onClick={() =>
@@ -97,7 +101,9 @@ export const Homepage = () => {
                 </div>
                 <button>Shop Now</button>
                 <div className="closePopup" onClick={()=>setPopup(!popup)}>X</div>
-            </div>:null}
+            </div> : null}
+            
+           
         </div>
     )
 }

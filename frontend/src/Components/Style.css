@@ -9,6 +9,30 @@
 
 }
 
+.menuClick {
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    top: 5em;
+    z-index: 12;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+
+
+.menuClick div {
+    display: flex;
+    justify-content: left;
+    padding: 2em;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+}
+
 .navbar {
     width: 100%;
     background-color: white;
@@ -235,14 +259,17 @@
     color: black;
 }
 
+.mainFooterDiv {
+    width: 100%;
+    background-color: rgb(14, 14, 15);
+}
+
 .footerContainer {
     margin-top: 5%;
-    width: 91.5%;
-    background-color: rgb(14, 14, 15);
     color: rgb(255, 255, 255);
     padding: 5px 5em;
     display: grid;
-    grid-template-columns: repeat(4, 24%);
+    grid-template-columns: repeat(4, 25%);
 }
 
 .footerContainer>div {
@@ -308,6 +335,19 @@
     flex-direction: column
 }
 
+.social {
+    display: flex;
+    padding: 1em;
+}
+
+.categoriess::-webkit-scrollbar {
+    display: none;
+}
+
+.productsDiv::-webkit-scrollbar {
+    display: none;
+}
+
 @media screen and (max-width:1100px) {
     .navbar2 {
         display: none;
@@ -360,20 +400,178 @@
         margin-left: 1em;
     }
 
+    .mainFooterDiv {
+        width: 100%;
+    }
+
+    .social {
+        display: grid;
+        grid-template-columns: repeat(4, 22%)
+    }
+
     .footerContainer {
-        width: 84.8%;
         display: grid;
         grid-template-columns: repeat(4, 25%);
     }
 
     .socialMedia {
-        width: 1.5em;
-        height: 1.5em;
+        width: 1em;
+        height: 1em;
         border: inherit
     }
 
     .finalDivFlex {
         display: grid;
-        grid-template-columns: repeat(4, 25%);
+        grid-template-columns: repeat(3, 32%);
     }
+}
+
+@media (max-width:800px) {
+    .productsDiv {
+        width: 130%;
+        display: grid;
+        grid-template-columns: repeat(2, 47%);
+        grid-gap: 5%;
+    }
+
+    .prodAndFilter {
+        display: block;
+    }
+
+    .categoriess {
+        width: 140%;
+        display: flex;
+        overflow-x: scroll;
+        white-space: nowrap;
+
+    }
+
+
+
+    .categoriess div {
+        margin-right: 1em;
+        background-color: rgb(240, 241, 241);
+        padding: 0.5em;
+        border-radius: 1em;
+
+    }
+
+    .filtersDiv {
+        display: none;
+    }
+
+    .categoriess div:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    .searchBar {
+        margin-top: 1em;
+        width: 134%;
+        margin-left: 0;
+    }
+
+    .mainFooterDiv {
+        width: 95%;
+        padding: 1em;
+        background-color: rgb(14, 14, 15);
+    }
+
+    .navbar {
+        width: 90%;
+    }
+
+    .loginbtn {
+        margin-right: 10px;
+    }
+
+    .menuBtn {
+        margin-right: 10px;
+    }
+
+    .footerContainer {
+        width: 82%;
+        padding: none;
+        font-size: 0.8em;
+        display: grid;
+        grid-template-columns: repeat(4, 24%);
+        grid-gap: 1%;
+    }
+
+    .finalFooter {
+        font-size: 0.8em;
+    }
+
+    .rightarrow {
+        margin-left: 90%;
+    }
+}
+
+@media (max-width:460px) {
+
+    .navbar {
+        width: 90%;
+        padding: none;
+    }
+
+    .productsDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .categoriess {
+        width: 120%;
+        display: flex;
+        overflow-x: scroll;
+        white-space: nowrap;
+
+    }
+
+    .mainFooterDiv {
+        width: 95%;
+        padding: 0.5em;
+        background-color: rgb(14, 14, 15);
+    }
+
+    .footerContainer {
+        width: 95%;
+        padding: 0.5em;
+        font-size: 0.8em;
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        grid-gap: 1%;
+    }
+
+    .footerContainer div:nth-child(3) {
+        display: none;
+    }
+
+    .finalFooter {
+        display: block;
+        width: 88%;
+        padding: 2em;
+    }
+
+    .finalFooter div:nth-child(2) {
+        margin-top: 5%;
+        display: grid;
+        grid-template-columns: repeat(5, 19%);
+    }
+
+    .social {
+        display: grid;
+        grid-template-columns: repeat(4, 24%);
+        grid-gap: 1%;
+    }
+
+    .socialMedia {
+        width: 1em;
+        height: 1em;
+        border: inherit
+    }
+
+    .rightarrow {
+        margin-left: 80%;
+    }
+
 }
