@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const page = +req.query.page || 1;
-    const size = +req.query.size || 16;
+    const size = +req.query.size || 12;
     const offset = (page - 1) * size;
     const products = await Product.find()
       .skip(offset)

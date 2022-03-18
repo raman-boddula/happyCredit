@@ -61,6 +61,7 @@
 }
 
 .homepageDiv {
+    /* position: absolute; */
     margin-top: 10em;
     width: 60%;
     margin-left: 12%;
@@ -83,6 +84,55 @@
 .underline {
     text-decoration: underline;
     font-weight: bold;
+}
+
+.popupOffer {
+    position: absolute;
+    left: 1.5em;
+    font-size: 2em;
+    font-weight: bolder;
+    bottom: 6em;
+    z-index: 3;
+    color: white;
+}
+
+.popupDiv {
+    width: 20em;
+    padding: 2em;
+    background-color: white;
+    position: fixed;
+    top: 25%;
+    left: 45%;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.popupDiv button {
+    width: 100%;
+    color: white;
+    background-color: black;
+    padding: 1em 5em;
+    font-weight: bolder;
+}
+
+.closePopup {
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 1em;
+    height: 1em;
+    padding: 0.5em;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.8em;
+    cursor: pointer;
+    background-color: silver;
+    border-radius: 50%;
+}
+
+.popupDiv img {
+    width: 100%;
 }
 
 .closebtn {
@@ -217,4 +267,113 @@
 
 .social>div {
     margin-right: 1.5em;
+}
+
+.finalFooter {
+    display: grid;
+    grid-template-columns: 65% 30%;
+    grid-gap: 5%;
+    background: black;
+    padding: 6em;
+    color: white;
+}
+
+.finalDivFlex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.finalDivFlex>div:hover {
+    color: #6FB2D2;
+    cursor: pointer;
+}
+
+.navbar2 {
+    display: flex;
+    margin-right: 40em;
+}
+
+.menuBtn {
+    display: none;
+}
+
+.socialMedia {
+    width: 2.5em;
+    height: 2.5em;
+    border: inherit
+}
+
+.terms {
+    display: flex;
+    flex-direction: column
+}
+
+@media screen and (max-width:1100px) {
+    .navbar2 {
+        display: none;
+    }
+
+    .loginbtn {
+        font-size: 1em;
+    }
+
+    .menuBtn {
+        width: 30px;
+        height: 30px;
+        display: block;
+        margin-right: 2em;
+        justify-content: center;
+        padding: 0.2em;
+        align-items: center;
+        font-size: 2em;
+        border-radius: 0.4em;
+        background-color: black;
+        cursor: pointer;
+        color: white;
+    }
+
+    .getappbtn {
+        display: none;
+    }
+
+    .adv {
+        display: 'none'
+    }
+
+    .productsDiv {
+        display: grid;
+        grid-template-columns: repeat(3, 32%)
+    }
+
+    .heading {
+        font-size: 2em;
+    }
+
+    .prodAndFilter {
+        display: grid;
+        grid-template-columns: 35% 70%;
+        grid-gap: 5%;
+    }
+
+    .searchBar {
+        width: 143%;
+        margin-left: 1em;
+    }
+
+    .footerContainer {
+        width: 84.8%;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+    }
+
+    .socialMedia {
+        width: 1.5em;
+        height: 1.5em;
+        border: inherit
+    }
+
+    .finalDivFlex {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+    }
 }

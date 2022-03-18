@@ -8,18 +8,20 @@ export const Homepage = () => {
     const [add, setAdd] = React.useState(true);
     const [types, setTypes] = React.useState(false);
     const [discountType, setDiscountType] = React.useState(false);
+    const [popup, setPopup] = React.useState(false);
     const [data, setData] = React.useState([]);
+    const [curr, setCurr] = React.useState({});
     React.useEffect(() => {
         axios.get('http://localhost:2345/products').then((response)=>setData(response.data.AllProducts));
     })
     return (
-        <div className="homepageDiv">
+        <div  className="homepageDiv">
             <h1 className="heading">All deals and coupons.</h1>
             <p>The best online deals and coupons, including Klarna exclusives, updated daily.</p>
             <div style={{display:add ? "block":"none"}} className="adv">Pay in 4 anywhere with the Chrome extension.<span className="underline">Add to Chrome</span> <span className="closebtn" onClick={()=>setAdd(false)}>X</span> </div>
             <br></br>
             <br></br>
-            <div className="prodAndFilter">
+            <div className="prodAndFilter" style={{filter: popup ?"blur(2px)":"none"}}>
                 <div>
                     <h2>Categories</h2>
                     <br></br>
@@ -37,8 +39,8 @@ export const Homepage = () => {
                     <hr></hr>
                     <h2>Filters</h2>
                     <div className="types" onClick={()=>setTypes(!types)}>
-                        <div>Type</div>
-                        <div>{types?<RiArrowDownSLine/>:<IoIosArrowUp />}</div>
+                        <div><strong>Type</strong></div>
+                        <div>{types?<RiArrowDownSLine style={{fontSize:"1em",fontWeight:"bolder"}}/>:<IoIosArrowUp  style={{fontSize:"1em",fontWeight:"bolder"}}/>}</div>
                     </div>
                     <br></br>
                     {types?<div>
@@ -49,8 +51,8 @@ export const Homepage = () => {
                     <br></br>
                     <hr></hr>
                     <div className="types" onClick={()=>setDiscountType(!discountType)}>
-                        <div>Dicount</div>
-                        <div>{discountType?<RiArrowDownSLine/>:<IoIosArrowUp />}</div>
+                        <div><strong>Discount</strong></div>
+                        <div>{discountType?<RiArrowDownSLine style={{fontSize:"1em",fontWeight:"bolder"}}/>:<IoIosArrowUp style={{fontSize:"1em",fontWeight:"bolder"}} />}</div>
                     </div>
                     <br></br>
                     {discountType?<div>
@@ -66,7 +68,11 @@ export const Homepage = () => {
                     <div className="productsDiv">
                         {data.length > 0 ? data.map((el) => {
                             return (
-                                <div style={{position:'relative'}}>
+                                <div style={{ position: 'relative' }} onClick={() =>
+                                {
+                                    setPopup(!popup);
+                                    setCurr(el);
+                                }}>
                                     <img src={el.product_img} alt={el.title} />
                                     <p style={{fontWeight:"bolder"}}>{el.title}</p>
                                     <p>{el.tag}</p>
@@ -79,10 +85,19 @@ export const Homepage = () => {
                         }):null}
                     </div>
                 </div>
-            </div>
-        
-        
-        
+            </div>     
+            {popup ? <div className="popupDiv">
+                                  <img src={curr.product_img} alt={curr.id}/>
+                                    <p style={{fontWeight:"bolder"}}>{curr.title}</p>
+                <p>Complete your looks with America's classic pieces. Save on designer men's and women's clothing. Now 30% off site wide.</p>
+                <p style={{fontSize:"0.8em",color:"silver"}}>Deals are offered directly by the retailer and subject to their terms. Klarna does not guarantee any deal. Klarna may get a commission.</p>
+                <div className="popupOffer" >
+                                    <p>{curr.offer}</p>
+                        <p>{curr.percentage}</p>
+                </div>
+                <button>Shop Now</button>
+                <div className="closePopup" onClick={()=>setPopup(!popup)}>X</div>
+            </div>:null}
         </div>
     )
 }
