@@ -10,9 +10,18 @@ export const Homepage = () => {
     const [popup, setPopup] = React.useState(false);
     const [data, setData] = React.useState([]);
     const [curr, setCurr] = React.useState({});
+    const [searchData, setSearchData] = React.useState([]);
     React.useEffect(() => {
-        axios.get(`http://localhost:2345/products`).then((response) => setData(response.data.AllProducts));
+        axios.get(`https://backend-klarna-app.herokuapp.com/products/`).then((response) => setData(response.data.AllProducts));
     }, []);
+    const handleChange = (e) => {
+        const searched = e.target.value;
+        console.log(searched);
+        let modifiedData=data.filter((el)=>{
+            return el.title.toLowerCase().includes(searched.toLowerCase());
+        })
+        setSearchData(modifiedData);
+    }
     return (
         <div  className="homepageDiv">
             <h1 className="heading">All deals and coupons.</h1>
@@ -67,10 +76,10 @@ export const Homepage = () => {
                 <div>
                     <div className="searchBar">
                         <BiSearch style={{padding:'1em'}}/>
-                        <input type="text" placeholder="Search"/>
+                        <input type="text" onChange={handleChange} placeholder="Search"/>
                     </div>
                     <div className="productsDiv" style={{height:"100vh",overflowY: 'scroll'}} >
-                        {data.length > 0 ? data.map((el) => {
+                        {searchData.length > 0 ? searchData.map((el) => {
                             return (
                                 <div style={{ position: 'relative' }} onClick={() =>
                                 {
@@ -86,7 +95,23 @@ export const Homepage = () => {
                                     </div>
                                 </div>
                             )
-                        }):null}
+                        }):data.map((el) => {
+                            return (
+                                <div style={{ position: 'relative' }} onClick={() =>
+                                {
+                                    setPopup(!popup);
+                                    setCurr(el);
+                                }}>
+                                    <img src={el.product_img} alt={el.title} />
+                                    <p style={{fontWeight:"bolder"}}>{el.title}</p>
+                                    <p>{el.tag}</p>
+                                    <div className="offer" >
+                                    <p>{el.offer}</p>
+                                    <p>{el.percentage}</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>     

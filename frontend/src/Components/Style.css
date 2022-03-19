@@ -424,6 +424,18 @@
         display: grid;
         grid-template-columns: repeat(3, 32%);
     }
+
+    .popupDiv {
+        width: 20em;
+        padding: 2em;
+        background-color: white;
+        position: fixed;
+        top: 25%;
+        left: 35%;
+        z-index: 10;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    }
 }
 
 @media (max-width:800px) {
@@ -463,6 +475,18 @@
     .categoriess div:hover {
         text-decoration: none;
         color: black;
+    }
+
+    .popupDiv {
+        width: 20em;
+        padding: 2em;
+        background-color: white;
+        position: fixed;
+        top: 25%;
+        left: 25%;
+        z-index: 10;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
     }
 
     .searchBar {
@@ -524,6 +548,18 @@
         display: flex;
         overflow-x: scroll;
         white-space: nowrap;
+
+    }
+
+    .popupDiv {
+        width: 15em;
+        padding: 2em;
+        background-color: white;
+        position: fixed;
+        top: 15%;
+        left: 10%;
+        z-index: 10;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     }
 
